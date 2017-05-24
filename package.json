@@ -1,0 +1,19 @@
+{
+  "name": "mail-service",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "standard": "standard --fix"
+  },
+  "dependencies": {
+    "config": "^1.26.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "sequelize": "^3.5.1"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  }
+}
