@@ -1,0 +1,11 @@
+{
+  "name": "mail-service",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "config": "^1.26.1",
+    "nodemailer": "^4.0.1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "mail-service",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "config": "^1.26.1",
+    "lodash.countby": "^4.6.0",
+    "lodash.differencewith": "^4.5.0",
+    "lodash.uniq": "^4.5.0",
+    "mysql": "^2.13.0",
+    "pg": "^6.2.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.5.1"
+  }
+}
