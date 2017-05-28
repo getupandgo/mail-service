@@ -1,1 +1,3 @@
-module.exports = require('./src/index')
+const app = require('./config/app')
+
+app()

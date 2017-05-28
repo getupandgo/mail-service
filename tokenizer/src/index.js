@@ -2,7 +2,7 @@ const countBy = require('lodash.countby')
 const differenceWith = require('lodash.differencewith')
 const uniq = require('lodash.uniq')
 
-const Token = require('../models').Token
+const TokenCount = require('../models').token_count
 
 module.exports.updateTokenFrequency = function (body) {
   let splittedText = body.match(/[a-z'\-]+/gi)
@@ -10,7 +10,7 @@ module.exports.updateTokenFrequency = function (body) {
 
   splittedText = uniq(splittedText, 'token')
 
-  return Token.findAll({
+  return TokenCount.findAll({
     attributes: ['token', 'count'],
     where: {
       token: {
@@ -22,7 +22,7 @@ module.exports.updateTokenFrequency = function (body) {
     const updatePromise = Promise.all(
       tokensToUpdate.map(token => {
         return token.update({
-            count: token.count + tokenFrequency[token.token]
+          count: token.count + tokenFrequency[token.token]
         })
       })
     )
@@ -35,15 +35,22 @@ module.exports.updateTokenFrequency = function (body) {
       return {token, count: tokenFrequency[token]}
     })
 
-    const createPromise = Token.bulkCreate(newRecords)
+    const createPromise = TokenCount.bulkCreate(newRecords)
 
     return Promise.all([updatePromise, createPromise])
   })
 }
 
 module.exports.getCommonTokens = function () {
-  return Token.findAll({
+  return TokenCount.findAll({
     order: 'count',
     limit: 10
+  }).then(topTokens => {
+    return topTokens.map(token => {
+      return {
+        token: token.token,
+        count: token.count
+      }
+    })
   })
 }

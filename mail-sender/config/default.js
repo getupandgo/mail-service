@@ -7,5 +7,6 @@ module.exports = {
       user: '2c381bee2622dd',
       pass: '85cfe6fbf7bfa1'
     }
-  }
+  },
+  amqp: 'amqp://localhost'
 }

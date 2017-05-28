@@ -1,13 +1,25 @@
 const express = require('express')
 
-const router = express.Router()
+module.exports = function (channel) {
+  const router = express.Router()
 
-router.get('/tokens', (req, res) => {
-  res.sendStatus(200)
-})
+  router.get('/tokens', (req, res) => {
+    channel.sendToQueue('req_tokens', Buffer.from('send'))
 
-router.post('/message', (req, res) => {
-  res.sendStatus(200)
-})
+    channel.consume('res_tokens', msg => {
+      if (msg) {
+        res.send(msg.content.toString())
+        channel.ack(msg)
+      }
+    })
+  })
 
-module.exports = router
+  router.post('/message', (req, res) => {
+    channel.sendToQueue('send_email', req.body)
+    channel.sendToQueue('update_tokens', req.body)
+
+    res.sendStatus(200)
+  })
+
+  return router
+}
