@@ -10,7 +10,14 @@
   "dependencies": {
     "config": "^1.26.1",
     "express": "^4.13.3",
+    "lodash.countby": "^4.6.0",
+    "lodash.differencewith": "^4.5.0",
+    "lodash.uniq": "^4.5.0",
     "morgan": "^1.6.1",
+    "mysql": "^2.13.0",
+    "nodemailer": "^4.0.1",
+    "pg": "^6.2.3",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^3.5.1"
   },
   "devDependencies": {
