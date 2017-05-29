@@ -6,7 +6,7 @@ const sender = require('../src/index')
 const message = {
   from: 'sender@mailservice.com',
   to: 'receiver@example.com',
-  subject: 'Sample message',
+  subject: 'Sample message'
 }
 
 module.exports = async function () {
