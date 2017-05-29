@@ -8,5 +8,5 @@ module.exports = {
       pass: '85cfe6fbf7bfa1'
     }
   },
-  amqp: 'amqp://localhost'
+  amqp: 'amqp://tkeammth:q6k5YUQ0KNewOEY1Ie5e6F9pvg00NUQA@orangutan.rmq.cloudamqp.com/tkeammth'
 }
