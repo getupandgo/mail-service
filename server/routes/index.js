@@ -22,12 +22,12 @@ module.exports = function (channel) {
 
 const getResponse = function (channel) {
   return new Promise((resolve, reject) => {
-      channel.consume('res_tokens', msg => {
-          if (msg) {
-              const content = msg.content.toString()
-              channel.ack(msg)
-              resolve(content)
-          } else { reject() }
-      })
+    channel.consume('res_tokens', msg => {
+      if (msg) {
+        const content = msg.content.toString()
+        channel.ack(msg)
+        resolve(content)
+      } else { reject() }
+    })
   })
 }

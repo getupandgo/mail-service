@@ -1,5 +1,4 @@
 module.exports = {
-  port: 3002,
   smtp: {
     host: 'smtp.mailtrap.io',
     port: 2525,
