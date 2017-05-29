@@ -1,8 +1,6 @@
     server:
         build: ./server
         container_name: server
-        volumes:
-            - "./server:/usr/src/server"
         working_dir: "/usr/src/server"
         ports:
             - "3000:3000"
@@ -11,15 +9,11 @@
     mail_sender:
         build: ./mail_sender
         container_name: mail_sender
-        volumes:
-            - "./mail_sender:/usr/src/mail_sender"
         working_dir: "/usr/src/mail_sender"
         command: npm start
 
     tokenizer:
         build: ./tokenizer
         container_name: tokenizer
-        volumes:
-            - "./tokenizer:/usr/src/tokenizer"
         working_dir: "/usr/src/tokenizer"
         command: npm start
