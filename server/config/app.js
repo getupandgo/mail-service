@@ -15,7 +15,7 @@ module.exports = async function () {
   await channel.assertQueue('res_tokens')
 
   const app = express()
-  app.use(bodyParser.raw({ type: '*/*' }))
+  app.use(bodyParser.json())
   app.use('/', index(channel))
 
   return app

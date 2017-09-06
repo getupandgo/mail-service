@@ -3,11 +3,7 @@ const config = require('config')
 
 const sender = require('../src/index')
 
-const message = {
-  from: 'sender@mailservice.com',
-  to: 'receiver@example.com',
-  subject: 'Sample message'
-}
+const fromAddr = config.get('senderAddr')
 
 module.exports = async function () {
   const connection = await amqp.connect(config.get('amqp'))
@@ -17,10 +13,14 @@ module.exports = async function () {
 
   channel.consume('send_email', msg => {
     if (msg) {
-      message.text = msg.content.toString()
+      const email = JSON.parse(msg.content.toString())
+      email.from = fromAddr
+
       sender.sendMail(message)
 
       channel.ack(msg)
+    } else {
+      console.error('No message provided')
     }
   })
 }

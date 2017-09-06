@@ -11,8 +11,8 @@ module.exports = function (channel) {
   })
 
   router.post('/message', (req, res) => {
-    channel.sendToQueue('send_email', req.body)
-    channel.sendToQueue('update_tokens', req.body)
+    channel.sendToQueue('send_email', Buffer.from(JSON.stringify(req.body)))
+    channel.sendToQueue('update_tokens', Buffer.from(req.body.text))
 
     return res.sendStatus(200)
   })

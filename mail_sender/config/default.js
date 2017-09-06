@@ -7,5 +7,6 @@ module.exports = {
       pass: '85cfe6fbf7bfa1'
     }
   },
-  amqp: 'amqp://tkeammth:q6k5YUQ0KNewOEY1Ie5e6F9pvg00NUQA@orangutan.rmq.cloudamqp.com/tkeammth'
+  amqp: 'amqp://tkeammth:q6k5YUQ0KNewOEY1Ie5e6F9pvg00NUQA@orangutan.rmq.cloudamqp.com/tkeammth',
+  senderAddr: 'sender@mailservice.com'
 }
